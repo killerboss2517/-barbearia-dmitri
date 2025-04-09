@@ -98,7 +98,7 @@ const HomePage = () => {
             marginTop: '20px',
           }}
         >
-          {['corte4.jpg', 'corte2.jpg', 'corte3.jpg', 'corte5.jpg''corte2.jpg', 'corte3.jpg', 'corte5.jpg'].map((img, i) => (
+          {['corte4.jpg', 'corte2.jpg', 'corte3.jpg', 'corte5.jpg','corte2.jpg', 'corte3.jpg', 'corte5.jpg'].map((img, i) => (
             <div key={i} style={{ borderRadius: '10px', overflow: 'hidden' }}>
               <img
                 src={`/images/${img}`}
