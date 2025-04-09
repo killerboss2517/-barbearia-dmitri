@@ -4,11 +4,11 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div style={{ fontFamily: 'Poppins, sans-serif', padding: '0', margin: 0, backgroundColor: '#f4f4f4' }}>
+    <div style={{ fontFamily: 'Poppins, sans-serif', padding: 0, margin: 0, backgroundColor: '#f4f4f4' }}>
       {/* Cabeçalho */}
       <header
         style={{
-          backgroundColor: '#1a3d66', // Azul suavizado
+          backgroundColor: '#1a3d66',
           color: '#fff',
           padding: '40px 0',
           textAlign: 'center',
@@ -18,12 +18,11 @@ const HomePage = () => {
           alignItems: 'center',
         }}
       >
-        {/* Logo */}
         <img
-          src="/images/perfil.jpg" // Substitua com o caminho correto do seu logo
+          src="/images/perfil.jpg"
           alt="Logo da Barbearia Dmitri"
           style={{
-            width: '110px', // Diminuí o tamanho da logo
+            width: '110px',
             height: 'auto',
             borderRadius: '50%',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
@@ -54,162 +53,72 @@ const HomePage = () => {
             margin: 0,
           }}
         >
-          <li style={{ margin: '0 25px' }}>
-            <a
-              href="/servicos"
-              style={{
-                color: '#fff',
-                textDecoration: 'none',
-                fontSize: '1.2rem',
-                transition: 'color 0.3s, transform 0.3s',
-              }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#5cb85c'}
-              onMouseOut={(e) => (e.target as HTMLElement).style.color = '#fff'}
-            >
-              Serviços
-            </a>
-          </li>
-          <li style={{ margin: '0 25px' }}>
-            <a
-              href="#agendamento"
-              style={{
-                color: '#fff',
-                textDecoration: 'none',
-                fontSize: '1.2rem',
-                transition: 'color 0.3s, transform 0.3s',
-              }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#5cb85c'}
-              onMouseOut={(e) => (e.target as HTMLElement).style.color = '#fff'}
-            >
-              Agendamento
-            </a>
-          </li>
-          <li style={{ margin: '0 25px' }}>
-            <a
-              href="#contato"
-              style={{
-                color: '#fff',
-                textDecoration: 'none',
-                fontSize: '1.2rem',
-                transition: 'color 0.3s, transform 0.3s',
-              }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#5cb85c'}
-              onMouseOut={(e) => (e.target as HTMLElement).style.color = '#fff'}
-            >
-              Contato
-            </a>
-          </li>
+          {['Serviços', 'Agendamento', 'Contato'].map((item) => (
+            <li key={item} style={{ margin: '0 25px' }}>
+              <a
+                href={item === 'Serviços' ? '/servicos' : `#${item.toLowerCase()}`}
+                style={{
+                  color: '#fff',
+                  textDecoration: 'none',
+                  fontSize: '1.2rem',
+                  transition: 'color 0.3s, transform 0.3s',
+                }}
+                onMouseOver={(e) => (e.target as HTMLElement).style.color = '#5cb85c'}
+                onMouseOut={(e) => (e.target as HTMLElement).style.color = '#fff'}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 
       {/* Galeria de cortes */}
-      <section id="galeria" style={{ marginTop: '40px' }}>
+      <section id="galeria" style={{ marginTop: '40px', padding: '0 20px' }}>
         <h2 style={{ color: '#1a3d66', textAlign: 'center', fontSize: '2rem', fontWeight: 'bold' }}>
           Galeria de Cortes
         </h2>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', // Diminui o tamanho da grid
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
             gap: '30px',
             marginTop: '30px',
           }}
         >
-          {/* Imagem 1 */}
-          <div
-            style={{
-              borderRadius: '15px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-          >
-            <img
-              src="/images/corte4.jpg" // Imagem 1
-              alt="Corte 1"
+          {['corte4.jpg', 'corte2.jpg', 'corte3.jpg', 'corte5.jpg'].map((img, i) => (
+            <div
+              key={i}
               style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
                 borderRadius: '15px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
-            />
-          </div>
-
-          {/* Imagem 2 */}
-          <div
-            style={{
-              borderRadius: '15px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-          >
-            <img
-              src="/images/corte2.jpg" // Imagem 2
-              alt="Corte 2"
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '15px',
-              }}
-            />
-          </div>
-
-          {/* Imagem 3 */}
-          <div
-            style={{
-              borderRadius: '15px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-          >
-            <img
-              src="/images/corte3.jpg" // Imagem 3
-              alt="Corte 3"
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '15px',
-              }}
-              
-            />
-          </div>
-           {/* Imagem 3 */}
-           <div
-            style={{
-              borderRadius: '15px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-          >
-            <img
-              src="/images/corte5.jpg" // Imagem 3
-              alt="Corte 3"
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '15px',
-              }}
-              
-            />
-          </div>
+            >
+              <img
+                src={`/images/${img}`}
+                alt={`Corte ${i + 1}`}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '15px',
+                }}
+              />
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Seção de agendamento */}
       <section id="agendamento" style={{ marginTop: '40px', textAlign: 'center' }}>
         <h2 style={{ color: '#1a3d66', fontSize: '2rem', fontWeight: 'bold' }}>Agendamento Online</h2>
-        <p style={{ fontSize: '1.2rem', fontWeight: '300', margin: '20px 0' }}>
-          Marque seu horário para não perder tempo. Clique em abaixo para marcar:
+        <p style={{ fontSize: '1.2rem', fontWeight: 300, margin: '20px 0' }}>
+          Marque seu horário para não perder tempo. Clique abaixo para marcar:
         </p>
         <a
-          href="https://calendly.com/gloriajoaopaulo8/30min" // Substitua pelo link do seu Calendly
+          href="https://calendly.com/gloriajoaopaulo8/30min"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -237,12 +146,26 @@ const HomePage = () => {
       </section>
 
       {/* Seção de contato */}
-      <section id="contato" style={{ marginTop: '40px', textAlign: 'center' }}>
+      <section id="contato" style={{ marginTop: '40px', textAlign: 'center', marginBottom: '60px' }}>
         <h2 style={{ color: '#1a3d66', fontSize: '2rem', fontWeight: 'bold' }}>Contato</h2>
         <p style={{ fontSize: '1.2rem' }}>
           Ligue para: <a href="tel:+351968566669" style={{ color: '#0055a5' }}>+351 968 566 669</a>
         </p>
       </section>
+
+      {/* Rodapé com localização */}
+      <footer
+        style={{
+          backgroundColor: '#1a3d66',
+          color: '#fff',
+          textAlign: 'center',
+          padding: '30px 20px',
+          fontSize: '0.9rem',
+        }}
+      >
+        <p>Endereço: Rua Tito de Morais Loja 3 A, Lisboa, Portugal, 1750-455</p>
+        <p style={{ marginTop: '10px' }}>&copy; {new Date().getFullYear()} Barbearia Dmitri. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };
